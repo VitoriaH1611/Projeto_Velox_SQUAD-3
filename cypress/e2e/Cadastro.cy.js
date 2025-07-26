@@ -28,7 +28,7 @@ describe('Cadastro com e-mail já existente', () => {
 
 describe('Cadastro com e-mail inválido', () => {
 
-  it.only('Deve exibir erro ao tentar cadastrar com e-mail inválido', () => {
+  it('Deve exibir erro ao tentar cadastrar com e-mail inválido', () => {
     cy.visit('https://www.veloxtickets.com/Portal/Cadastre-se?ReturnUrl=%2FPortal%2FIngresso%2FCinema%2FSao-Paulo');
 
     cy.get('#FullName').type('Caroline Albuquerque Didoné');
@@ -51,3 +51,49 @@ describe('Cadastro com e-mail inválido', () => {
      
   });
 });
+
+
+it('Cadastro de novo usuário válido', () => {
+  cy.visit('https://www.veloxtickets.com/Portal/Ingresso/Cinema/Sao-Paulo')
+  cy.visit('https://www.veloxtickets.com/Portal/Login?ReturnUrl=%2FPortal%2FIngresso%2FCinema%2FSao-Paulo')
+  
+  cy.get('#RegisterLink').click();
+  cy.get('#FullName').type('Testinho da Silva');
+  cy.get('#CPF').type('null');
+  cy.gerarCpf(true).then((cpfFormatado) => {
+  cy.get('#CPF').type(cpfFormatado);
+});
+  cy.get('#BirthDate').type('16122000');
+  cy.get('#BirthDate').type('16122000');
+  cy.get('#Email').type('newuserVelox2025@gmail.com');
+  cy.get('#ConfirmEmail').type('newuserVelox2025@gmail.com');
+  cy.get('#Password').type('Cyp#Vel25');
+  cy.get('#ConfirmPassword').type('Cyp#Vel25');
+  cy.get('#TermsCheckBox').check({ force: true });
+  cy.get('#btnRegister').click();
+
+});  
+
+
+it('Cadastro de novo usuário inválido: Email incorreto', () => {
+  cy.visit('https://www.veloxtickets.com/Portal/Ingresso/Cinema/Sao-Paulo')
+  cy.visit('https://www.veloxtickets.com/Portal/Login?ReturnUrl=%2FPortal%2FIngresso%2FCinema%2FSao-Paulo')
+  
+  cy.get('#RegisterLink').click();
+  cy.get('#FullName').type('Invalido Silva e Souza');
+  cy.get('#CPF').type('null');
+  cy.gerarCpf(true).then((cpfFormatado) => {
+  cy.get('#CPF').type(cpfFormatado);
+});
+  cy.get('#BirthDate').type('16122000');
+  cy.get('#BirthDate').type('16122000');
+  cy.get('#Email').type('newuserVelox2025@gmil.com');
+  cy.get('#ConfirmEmail').type('newuserVelox2025@gmil.com');
+  cy.get('#Password').type('Cyp#Vel25');
+  cy.get('#ConfirmPassword').type('Cyp#Vel25');
+  cy.get('#TermsCheckBox').check({ force: true });
+  
+
+});  
+
+
