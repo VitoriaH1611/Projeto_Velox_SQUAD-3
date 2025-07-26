@@ -40,5 +40,5 @@ Plataforma especializada na **venda de ingressos de cinema** com:
 
 
 ## 🎥 Apresentação
+[![Assistir a_Automação](https://img.shields.io/badge/▶-Assistir_a_Automação-red?style=for-the-badge&logo=youtube)](https://youtu.be/UMDZ4_weqCM)
 
-https://www.canva.com/design/DAGuB4elCHM/G8-vkKSSxX5fzp_GArmd6g/edit?utm_content=DAGuB4elCHM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
